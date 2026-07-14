@@ -4,6 +4,7 @@ package com.example.whaterapi.weather;
 import com.example.whaterapi.weather.entity.WeatherResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -18,6 +19,9 @@ public class WeatherService {
 
     private final Logger logger =  LoggerFactory.getLogger(WeatherService.class);
 
+    @Value("${api.key}")
+    private String apiKey;
+
     public WeatherService(RestClient restClient) {
         this.restClient = restClient;
     }
@@ -31,7 +35,7 @@ public class WeatherService {
                     .uri(uriBuilder -> uriBuilder
                             .path("/VisualCrossingWebServices/rest/services/timeline/{location}")
                             .queryParam("unitGroup", "us")
-                            .queryParam("key", "")
+                            .queryParam("key", apiKey)
                             .queryParam("contentType", "json")
                             .build(cityName))
                     .retrieve()
