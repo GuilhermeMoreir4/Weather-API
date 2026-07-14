@@ -1,16 +1,18 @@
 package com.example.whaterapi.test;
 
 import com.example.whaterapi.test.weather_entity.*;
+import io.swagger.v3.oas.annotations.Hidden;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
-
+@Hidden
 @RestController
 @RequestMapping("api/v1/weather")
 public class TestController {

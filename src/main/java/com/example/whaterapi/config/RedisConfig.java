@@ -1,8 +1,7 @@
 package com.example.whaterapi.config;
 
 
-import com.example.whaterapi.weather.entity.WeatherResponse;
-import org.springframework.boot.jackson.autoconfigure.JsonMapperBuilderCustomizer;
+import com.example.whaterapi.weather.dtos.WeatherResponse;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.cache.RedisCacheConfiguration;
@@ -11,9 +10,6 @@ import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.data.redis.connection.RedisStandaloneConfiguration;
 
 import org.springframework.data.redis.serializer.*;
-import tools.jackson.databind.ObjectMapper;
-import tools.jackson.databind.SerializationFeature;
-import tools.jackson.databind.json.JsonMapper;
 
 import java.time.Duration;
 

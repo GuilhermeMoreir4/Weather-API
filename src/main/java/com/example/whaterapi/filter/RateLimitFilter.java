@@ -23,8 +23,8 @@ public class RateLimitFilter extends OncePerRequestFilter {
 
         return buckets.computeIfAbsent(ip,key -> {
             Bandwidth limit = Bandwidth.builder()
-                    .capacity(2)
-                    .refillGreedy(2, Duration.ofMinutes(1))
+                    .capacity(10)
+                    .refillGreedy(10, Duration.ofMinutes(1))
                     .build();
 
             return Bucket.builder()
